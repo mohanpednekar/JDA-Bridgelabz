@@ -1,0 +1,26 @@
+{
+  "collection": [
+    {
+      "fname": "Mohan",
+      "sname": "Pednekar",
+      "address": {
+        "address": "Kanrron",
+        "city": "Hyderabad",
+        "state": "TS",
+        "zip": "500032"
+      },
+      "phone": "6238671234"
+    },
+    {
+      "fname": "Atul",
+      "sname": "Yadav",
+      "address": {
+        "address": "Isthara",
+        "city": "JV Colony",
+        "state": "TS",
+        "zip": "500081"
+      },
+      "phone": "7642343876"
+    }
+  ]
+}

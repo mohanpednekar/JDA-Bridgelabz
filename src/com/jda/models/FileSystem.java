@@ -23,8 +23,10 @@ public class FileSystem {
     Type type = new TypeToken<AddressBook>() {}.getType();
     return gson.fromJson(new BufferedReader(new FileReader(file)), type);
   }
-  
+
   public void saveFile(AddressBook addressBook, File file) throws IOException {
+    System.out.println(file.getAbsolutePath());
+    file.createNewFile();
     try (Writer writer = new FileWriter(file)) {
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
       gson.toJson(addressBook, writer);
@@ -32,10 +34,9 @@ public class FileSystem {
       addressBook.setFile(file);
     }
   }
-
+  
   public File fetchFile(String addressBookName) {
     return new File(Path.ADDRESS_BOOKS + addressBookName + Ext.ADDRESS_BOOK);
-    
   }
-  
+
 }

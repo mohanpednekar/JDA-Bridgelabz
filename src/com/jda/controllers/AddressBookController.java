@@ -32,6 +32,7 @@ public class AddressBookController {
   public void editPerson(int index) {
     AddressBook addressBook = addressBookView.getAddressBook();
     String fullName = addressBook.getFullNameOfPerson(index);
+    System.out.println(fullName);
     ArrayList<String> info = addressBook.getOtherPersonInformation(index);
     System.out.println("Enter the requested edits. Enter x to keep current information");
     Reader reader = new Reader();
@@ -52,6 +53,7 @@ public class AddressBookController {
     AddressBook addressBook = addressBookView.getAddressBook();
     String fullName = addressBook.getFullNameOfPerson(index);
     Reader reader = new Reader();
+    System.out.println(fullName);
     boolean confirmationProvided = reader.seekConfirmation("Confirm delete person?");
     if (confirmationProvided) {
       addressBook.removePerson(index);
@@ -113,6 +115,7 @@ public class AddressBookController {
   public void createNewAddressBook() {
     AddressBook addressBook = new AddressBook();
     addressBookView.setAddressBook(addressBook);
+    System.out.println("New addressbook created");
   }
 
   public void openAddressBook() {
@@ -122,6 +125,7 @@ public class AddressBookController {
 
     try {
       AddressBook addressBook = fileSystem.readFile(file);
+      addressBook.setFile(file);
       addressBookView.setAddressBook(addressBook);
     } catch (JsonIOException e) {
       // TODO Auto-generated catch block
@@ -149,5 +153,13 @@ public class AddressBookController {
   public Integer getSelectedPerson() {
     AddressBook addressBook = addressBookView.getAddressBook();
     return addressBook.getSelectedPerson();
+  }
+
+  public void setAddressBookView(AddressBookView addressBookView) {
+    this.addressBookView = addressBookView;
+  }
+
+  public void setFileSystem(FileSystem fileSystem) {
+    this.fileSystem = fileSystem;
   }
 }

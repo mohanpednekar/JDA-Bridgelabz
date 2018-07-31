@@ -1,0 +1,16 @@
+{
+  "collection": [
+    {
+      "fname": "Mohan",
+      "sname": "Pednekar",
+      "address": {
+        "address": "Kanrron",
+        "city": "Hyderabad",
+        "state": "TS",
+        "zip": "500032"
+      },
+      "phone": "6238671234"
+    }
+  ]
+
+}
