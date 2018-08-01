@@ -10,15 +10,15 @@ public class Enums {
   }
 
   public enum PatientMenu {
-
+    SEARCH
   }
 
   public enum DoctorMenu {
-
+    SEARCH, BOOKAPPOINTMENT
   }
 
   public enum InsightsMenu {
-
+    POPULARDOCTOR, POPULARSPECIALISATION
   }
 
   public static <T extends Enum<T>> String toStringAll(Class<T> menu) {

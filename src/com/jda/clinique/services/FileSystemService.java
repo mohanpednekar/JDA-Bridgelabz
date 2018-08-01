@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,13 +17,15 @@ import com.google.gson.reflect.TypeToken;
 import com.jda.clinique.util.Constants;
 
 public class FileSystemService {
-  public <T> T readFile(File file) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
+  public <T> T readFile(String pathname) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
+    File file = new File(pathname);
     Gson gson = new GsonBuilder().setDateFormat(Constants.DATE_FORMAT).create();
-    Type type = new TypeToken<ArrayList<T>>() {}.getType();
+    Type type = new TypeToken<T>() {}.getType();
     return gson.fromJson(new BufferedReader(new FileReader(file)), type);
   }
   
-  public <T> void saveFile(T item, File file) throws IOException {
+  public <T> void saveFile(T item, String pathname) throws IOException {
+    File file = new File(pathname);
     file.createNewFile();
     try (Writer writer = new FileWriter(file)) {
       Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat(Constants.DATE_FORMAT).create();

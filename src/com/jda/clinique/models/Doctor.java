@@ -2,8 +2,8 @@ package com.jda.clinique.models;
 
 import com.jda.clinique.util.Enums.AppointmentSlot;
 
-public class Doctor {
-  private String                 specialisation;
+public class Doctor extends Person {
+  private String          specialisation;
   private AppointmentSlot availability;
   
   public String getSpecialisation() {
@@ -20,5 +20,10 @@ public class Doctor {
   
   public void setAvailability(AppointmentSlot availability) {
     this.availability = availability;
+  }
+  
+  public boolean isAvailable(AppointmentSlot slot) {
+    if (AppointmentSlot.BOTH.equals(slot)) { return true; }
+    return availability.equals(slot);
   }
 }

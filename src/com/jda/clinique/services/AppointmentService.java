@@ -1,13 +1,26 @@
 package com.jda.clinique.services;
 
+import java.util.ArrayList;
+
 import com.jda.clinique.models.Appointment;
 
 public class AppointmentService {
-  boolean isAvailable(Appointment appointment) {
-    return numberOfBookings(appointment) < 5;
-  }
+  private ArrayList<Appointment> appointments;
   
-  private int numberOfBookings(Appointment appointment) {
-    return appointment.getPatientIds().size();
+  public ArrayList<Appointment> getAppointments() {
+    return appointments;
+  }
+
+  public Appointment findAppointment(Appointment seekingAppointment) {
+    for (Appointment appointment : appointments) {
+      boolean match = appointment.checkMatch(seekingAppointment);
+      if (match) { return appointment; }
+    }
+    return null;
+  }
+
+  public void addNewAppointment(Appointment seekingAppointment, String patientId) {
+    seekingAppointment.addPatientId(patientId);
+    appointments.add(seekingAppointment);
   }
 }

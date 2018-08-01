@@ -1,5 +1,9 @@
 package com.jda.clinique.app;
 
+import java.io.FileNotFoundException;
+
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 import com.jda.clinique.controllers.DoctorViewController;
 import com.jda.clinique.controllers.InsightsViewController;
 import com.jda.clinique.controllers.PatientViewController;
@@ -18,47 +22,72 @@ public class CliniqueManagerApp {
   private DoctorViewController   doctorViewController;
   private InsightsViewController insightsViewController;
   private PatientViewController  patientViewController;
-  
+
   public CliniqueManagerApp() {
     fileSystemService = new FileSystemService();
-    doctorViewController = new DoctorViewController();
-    insightsViewController = new InsightsViewController();
-    patientViewController = new PatientViewController();
-    doctorView = new DoctorView(doctorViewController, fileSystemService);
-    insightsView = new InsightsView(insightsViewController, fileSystemService);
-    patientView = new PatientView(patientViewController, fileSystemService);
   }
-  
+
   public static void main(String[] args) {
     CliniqueManagerApp app = new CliniqueManagerApp();
     app.execute();
   }
-  
+
   private void execute() {
     System.out.println("Welcome to JDA Clinique");
     Reader reader = new Reader();
     MainMenu menuItem = reader.requestInputEnum("Enter screen name : ", MainMenu.class);
     switch (menuItem) {
       case DOCTOR:
-        doctorView.show();
+        if (doctorViewController == null) {
+          try {
+            doctorViewController = new DoctorViewController();
+            doctorView = new DoctorView(doctorViewController, fileSystemService);
+            doctorView.show();
+          } catch (JsonIOException | JsonSyntaxException | FileNotFoundException e) {
+            System.out.println("Something went wrong. Did you check whether Doctors data file is readable?");
+          }
+        } else {
+          doctorView.show();
+        }
         break;
       case INSIGHTS:
-        insightsView.show();
+        if (insightsViewController == null) {
+          try {
+            insightsViewController = new InsightsViewController();
+            insightsView = new InsightsView(insightsViewController, fileSystemService);
+            insightsView.show();
+          } catch (Exception e) {
+            System.out.println("Something went wrong. Did you check whether the Appointments data is readable?");
+          }
+        } else {
+          insightsView.show();
+        }
         break;
       case PATIENT:
-        patientView.show();
+        if (patientViewController == null) {
+          try {
+            patientViewController = new PatientViewController();
+            patientView = new PatientView(patientViewController, fileSystemService);
+            patientView.show();
+          } catch (Exception e) {
+            System.out.println("Something went wrong. Did you check whether Patients data file is readable?");
+          }
+        } else {
+          patientView.show();
+        }
         break;
       case QUIT:
         quit();
         break;
-
+      
     }
+    
   }
-
+  
   private void quit() {
     System.out.println("Housekeeping...");
     System.out.println("done.");
     System.out.println("Bye..");
   }
-
+  
 }

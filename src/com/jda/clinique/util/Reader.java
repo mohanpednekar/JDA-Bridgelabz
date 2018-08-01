@@ -1,5 +1,8 @@
 package com.jda.clinique.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Reader {
@@ -30,5 +33,16 @@ public class Reader {
       }
     }
     return choice;
+  }
+
+  public Date requestInputDate(String prompt) {
+    System.out.println(prompt);
+    Date date;
+    try {
+      date = new SimpleDateFormat(Constants.DATE_FORMAT).parse(scanner.nextLine());
+    } catch (ParseException e) {
+      return null;
+    }
+    return date;
   }
 }

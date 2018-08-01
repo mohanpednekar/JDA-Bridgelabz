@@ -2,6 +2,8 @@ package com.jda.clinique.views;
 
 import com.jda.clinique.controllers.InsightsViewController;
 import com.jda.clinique.services.FileSystemService;
+import com.jda.clinique.util.Enums.InsightsMenu;
+import com.jda.clinique.util.Reader;
 
 public class InsightsView {
   InsightsViewController insightsViewController;
@@ -13,8 +15,16 @@ public class InsightsView {
   }
   
   public void show() {
-    // TODO Auto-generated method stub
-
+    Reader reader = new Reader();
+    InsightsMenu menuItem = reader.requestInputEnum("What do you want to check?", InsightsMenu.class);
+    switch (menuItem) {
+      case POPULARDOCTOR:
+        insightsViewController.showPopularDoctor();
+        break;
+      case POPULARSPECIALISATION:
+        insightsViewController.showPopularSpecialisation();
+        break;
+    }
   }
 
 }

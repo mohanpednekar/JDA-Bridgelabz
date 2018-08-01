@@ -2,6 +2,8 @@ package com.jda.clinique.views;
 
 import com.jda.clinique.controllers.DoctorViewController;
 import com.jda.clinique.services.FileSystemService;
+import com.jda.clinique.util.Enums.DoctorMenu;
+import com.jda.clinique.util.Reader;
 
 public class DoctorView {
   DoctorViewController doctorViewController;
@@ -13,8 +15,16 @@ public class DoctorView {
   }
   
   public void show() {
-    // TODO Auto-generated method stub
-
+    Reader reader = new Reader();
+    DoctorMenu menuItem = reader.requestInputEnum("What do you want to do?", DoctorMenu.class);
+    switch (menuItem) {
+      case BOOKAPPOINTMENT:
+        doctorViewController.bookAppointment();
+        break;
+      case SEARCH:
+        doctorViewController.searchDoctors();
+        break;
+    }
   }
 
 }

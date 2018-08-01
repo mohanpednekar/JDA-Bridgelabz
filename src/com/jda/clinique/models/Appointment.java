@@ -11,6 +11,12 @@ public class Appointment {
   private AppointmentSlot   slot;
   private ArrayList<String> patientIds;
   
+  public Appointment(String doctorId, Date date, AppointmentSlot slot) {
+    this.doctorId = doctorId;
+    this.date = date;
+    this.slot = slot;
+  }
+
   public String getDoctorId() {
     return doctorId;
   }
@@ -42,4 +48,20 @@ public class Appointment {
   public void setSlot(AppointmentSlot slot) {
     this.slot = slot;
   }
+  
+  public void addPatientId(String patientId) {
+    patientIds.add(patientId);
+  }
+
+  public int numberOfBookings() {
+    return getPatientIds().size();
+  }
+
+  public boolean checkMatch(Appointment a2) {
+    if (!doctorId.equals(a2.getDoctorId())) { return false; }
+    if (!date.equals(a2.getDate())) { return false; }
+    if (!slot.equals(a2.getSlot())) { return false; }
+    return true;
+  }
+  
 }
