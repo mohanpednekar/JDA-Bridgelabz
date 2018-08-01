@@ -4,27 +4,27 @@ public class Enums {
   public enum AppointmentSlot {
     AM, PM, BOTH
   }
-  
+
   public enum MainMenu {
     DOCTOR, PATIENT, INSIGHTS, QUIT;
   }
-
+  
   public enum PatientMenu {
-    SEARCH
+    SEARCH, ADD, REMOVE
   }
-
+  
   public enum DoctorMenu {
-    SEARCH, BOOKAPPOINTMENT
+    SEARCH, BOOKAPPOINTMENT, ADD, REMOVE
   }
-
+  
   public enum InsightsMenu {
     POPULARDOCTOR, POPULARSPECIALISATION
   }
-
+  
   public static <T extends Enum<T>> String toStringAll(Class<T> menu) {
     return toStringAll(menu, " ");
   }
-  
+
   public static <T extends Enum<T>> String toStringAll(Class<T> menu, String separator) {
     StringBuilder stringBuilder = new StringBuilder();
     for (T menuItem : menu.getEnumConstants()) {
