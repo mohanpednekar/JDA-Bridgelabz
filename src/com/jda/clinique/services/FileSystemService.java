@@ -19,11 +19,9 @@ public class FileSystemService {
   public <T> T readFile(String pathname, Type type) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
     File file = new File(pathname);
     Gson gson = new GsonBuilder().setDateFormat(Constants.DATE_FORMAT).create();
-    System.out.println(type.getTypeName());
-    System.out.println(file.getAbsolutePath());
     return gson.fromJson(new BufferedReader(new FileReader(file)), type);
   }
-
+  
   public <T> void saveFile(T item, String pathname) throws IOException {
     File file = new File(pathname);
     file.createNewFile();

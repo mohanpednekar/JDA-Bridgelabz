@@ -9,7 +9,7 @@ public class Appointment {
   private int                doctorId;
   private Date               date;
   private AppointmentSlot    slot;
-  private ArrayList<Integer> patientIds;
+  private ArrayList<Integer> patientIds = new ArrayList<>();
 
   public Appointment(int doctorId, Date date, AppointmentSlot slot) {
     this.doctorId = doctorId;

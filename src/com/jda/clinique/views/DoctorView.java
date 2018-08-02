@@ -16,23 +16,30 @@ public class DoctorView {
   
   public void show() {
     Reader reader = new Reader();
-    DoctorMenu menuItem = reader.requestInputEnum("What do you want to do?", DoctorMenu.class);
-    switch (menuItem) {
-      case BOOKAPPOINTMENT:
-        doctorViewController.bookAppointment();
+    while (true) {
+      boolean done = false;
+      DoctorMenu menuItem = reader.requestInputEnum("What do you want to do?", DoctorMenu.class);
+      switch (menuItem) {
+        case BOOK:
+          doctorViewController.bookAppointment();
+          break;
+        case SEARCH:
+          doctorViewController.searchDoctors();
+          break;
+        case ADD:
+          doctorViewController.addDoctor();
+          break;
+        case BACK:
+          done = true;
+          doctorViewController.openMainMenu();
+          break;
+        case REMOVE:
+          doctorViewController.removeDoctor();
+          break;
+      }
+      if (done) {
         break;
-      case SEARCH:
-        doctorViewController.searchDoctors();
-        break;
-      case ADD:
-        doctorViewController.addDoctor();
-        break;
-      case BACK:
-        doctorViewController.openMainMenu();
-        break;
-      case REMOVE:
-        doctorViewController.removeDoctor();
-        break;
+      }
     }
   }
 

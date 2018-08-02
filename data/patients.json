@@ -1,2 +1,22 @@
 {
+  "patients": [
+    {
+      "mobile": 872312873,
+      "age": 29,
+      "name": "Mohan",
+      "id": 1
+    },
+    {
+      "mobile": 45673434587,
+      "age": 29,
+      "name": "HEmant",
+      "id": 2
+    },
+    {
+      "mobile": 1234,
+      "age": 12,
+      "name": "satya singh",
+      "id": 3
+    }
+  ]
 }

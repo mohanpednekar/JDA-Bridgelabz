@@ -6,15 +6,15 @@ import com.jda.clinique.models.Doctor;
 import com.jda.clinique.util.Enums.AppointmentSlot;
 
 public class DoctorService {
-  private ArrayList<Doctor> doctors;
-
+  private ArrayList<Doctor> doctors = new ArrayList<>();
+  
   public Doctor find(int doctorId) {
     for (Doctor doctor : doctors) {
       if (doctor.getId() == doctorId) { return doctor; }
     }
     return null;
   }
-
+  
   public ArrayList<Doctor> findMatchesSkippable(String name, int doctorId, AppointmentSlot availabilty,
       String specialisation) {
     ArrayList<Doctor> matches = new ArrayList<>();
@@ -35,11 +35,11 @@ public class DoctorService {
     }
     return matches;
   }
-  
+
   public void addDoctor(Doctor doctor) {
     doctors.add(doctor);
   }
-
+  
   public int findHighestId() {
     int highest = 0;
     for (Doctor doctor : doctors) {
@@ -49,7 +49,7 @@ public class DoctorService {
     }
     return highest;
   }
-  
+
   public void removeDoctor(Doctor doctor) {
     doctors.remove(doctor);
   }

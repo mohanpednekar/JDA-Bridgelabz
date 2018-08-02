@@ -1,3 +1,16 @@
 {
-
+  "doctors": [
+    {
+      "specialisation": "PEdiatrician",
+      "availability": "BOTH",
+      "name": "Mohan",
+      "id": 2
+    },
+    {
+      "specialisation": "Orthopedic",
+      "availability": "AM",
+      "name": "Xyz",
+      "id": 1
+    }
+  ]
 }

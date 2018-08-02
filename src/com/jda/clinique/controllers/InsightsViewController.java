@@ -17,7 +17,7 @@ import com.jda.clinique.util.Constants.Path;
 public class InsightsViewController {
   AppointmentService appointmentService;
   DoctorService      doctorService;
-
+  
   public InsightsViewController() throws JsonIOException, JsonSyntaxException, FileNotFoundException {
     FileSystemService fileSystemService = new FileSystemService();
     Type appointmentsType = new TypeToken<AppointmentService>() {}.getType();
@@ -25,13 +25,13 @@ public class InsightsViewController {
     Type doctorsType = new TypeToken<DoctorService>() {}.getType();
     doctorService = fileSystemService.readFile(Path.DOCTORS, doctorsType);
   }
-
+  
   public void showPopularDoctor() {
-    HashMap<String, Integer> bookingsCount = new HashMap<>();
-    String mostPopular = null;
+    HashMap<Integer, Integer> bookingsCount = new HashMap<>();
+    int mostPopular = 0;
     int maxBookings = 0;
     for (Appointment appointment : appointmentService.getAppointments()) {
-      String id = appointment.getDoctorId();
+      int id = appointment.getDoctorId();
       bookingsCount.putIfAbsent(id, 0);
       bookingsCount.put(id, bookingsCount.get(id) + appointment.numberOfBookings());
       if (bookingsCount.get(id) > maxBookings) {
@@ -39,11 +39,11 @@ public class InsightsViewController {
         mostPopular = id;
       }
     }
-    
+
     Doctor popularDoctor = doctorService.find(mostPopular);
     System.out.println(popularDoctor);
   }
-  
+
   public void showPopularSpecialisation() {
     HashMap<String, Integer> bookingsCount = new HashMap<>();
     String mostPopular = null;
@@ -58,7 +58,7 @@ public class InsightsViewController {
       }
     }
     System.out.println(mostPopular);
-
+    
   }
-
+  
 }

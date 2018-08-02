@@ -1,6 +1,7 @@
 package com.jda.clinique.controllers;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,9 +23,10 @@ import com.jda.clinique.util.Reader;
 public class DoctorViewController {
   AppointmentService appointmentService;
   DoctorService      doctorService;
+  FileSystemService  fileSystemService;
   
   public DoctorViewController() throws JsonIOException, JsonSyntaxException, FileNotFoundException {
-    FileSystemService fileSystemService = new FileSystemService();
+    fileSystemService = new FileSystemService();
     Type appointmentsType = new TypeToken<AppointmentService>() {}.getType();
     appointmentService = fileSystemService.readFile(Path.APPOINTMENTS, appointmentsType);
     Type doctorsType = new TypeToken<DoctorService>() {}.getType();
@@ -34,9 +36,9 @@ public class DoctorViewController {
   public void bookAppointment() {
     Reader reader = new Reader();
     int doctorId = reader.requestInputInt("Enter Doctor ID : ");
+    int patientId = reader.requestInputInt("Enter Patient ID : ");
     Date date = reader.requestInputDate("Enter date (" + Constants.DATE_FORMAT.toUpperCase() + ") : ");
     AppointmentSlot slot = reader.requestInputEnum("Choose slot : ", AppointmentSlot.class);
-    int patientId = reader.requestInputInt("Enter Patient ID : ");
     Appointment seekingAppointment = new Appointment(doctorId, date, slot);
     Appointment existingAppointment = appointmentService.findAppointment(seekingAppointment);
     if (existingAppointment == null) {
@@ -51,7 +53,15 @@ public class DoctorViewController {
     Doctor seekingDoctor = doctorService.find(seekingAppointment.getDoctorId());
     if ((seekingDoctor != null) && seekingDoctor.isAvailable(seekingAppointment.getSlot())) {
       appointmentService.addNewAppointment(seekingAppointment, patientId);
-      System.out.println(Constants.APPOINTMENT_BOOKED_SUCCESSFULLY);
+      try {
+        fileSystemService.saveFile(appointmentService, Path.APPOINTMENTS);
+        System.out.println(Constants.APPOINTMENT_BOOKED_SUCCESSFULLY);
+
+      } catch (IOException e) {
+        System.out.println(Constants.FAILED_TO_SAVE_CHANGES);
+        e.printStackTrace();
+      }
+      
     } else {
       System.out.println(Constants.FAILED_TO_FIND_THE_REQUESTED_DOCTOR_IN_THE_SLOT);
     }
@@ -60,7 +70,16 @@ public class DoctorViewController {
   private void attemptExistingAppointment(Appointment existingAppointment, int patientId) {
     if (existingAppointment.numberOfBookings() < 5) {
       existingAppointment.addPatientId(patientId);
-      System.out.println(Constants.APPOINTMENT_BOOKED_SUCCESSFULLY);
+
+      try {
+        fileSystemService.saveFile(appointmentService, Path.APPOINTMENTS);
+        System.out.println(Constants.APPOINTMENT_BOOKED_SUCCESSFULLY);
+
+      } catch (IOException e) {
+        System.out.println(Constants.FAILED_TO_SAVE_CHANGES);
+        e.printStackTrace();
+      }
+
     } else {
       System.out.println(Constants.THIS_SLOT_IS_FULL);
     }
@@ -69,10 +88,10 @@ public class DoctorViewController {
   public void searchDoctors() {
     System.out.println("Enter requested search parameters. Enter x to skip.");
     Reader reader = new Reader();
-    String name = reader.requestInputLine("Enter Doctor aame : ");
+    String name = reader.requestInputLine("Enter Doctor name : ");
     int doctorId = reader.requestInputInt("Enter Doctor ID : ");
-    AppointmentSlot availabilty = reader.requestInputEnum("Enter availability needed : ", AppointmentSlot.class);
     String specialisation = reader.requestInputLine("Enter Specialisation : ");
+    AppointmentSlot availabilty = reader.requestInputEnum("Enter availability needed : ", AppointmentSlot.class);
     ArrayList<Doctor> doctorsFound = doctorService.findMatchesSkippable(name, doctorId, availabilty, specialisation);
     System.out.println("\nWe found following doctors");
     doctorsFound.forEach(System.out::println);
@@ -88,6 +107,15 @@ public class DoctorViewController {
     int highestId = doctorService.findHighestId();
     Doctor doctor = new Doctor(reader, highestId);
     doctorService.addDoctor(doctor);
+    
+    try {
+      fileSystemService.saveFile(doctorService, Path.DOCTORS);
+      System.out.println("Doctor Added");
+    } catch (IOException e) {
+      System.out.println(Constants.FAILED_TO_SAVE_CHANGES);
+      e.printStackTrace();
+    }
+    
   }
 
   public void removeDoctor() {
@@ -100,7 +128,13 @@ public class DoctorViewController {
       boolean confirmDelete = reader.requestConfirmation("Confirm remove Dr. " + doctor.getName() + "?");
       if (confirmDelete) {
         doctorService.removeDoctor(doctor);
-        System.out.println("Doctor removed");
+        try {
+          fileSystemService.saveFile(doctorService, Path.DOCTORS);
+          System.out.println("Doctor removed");
+        } catch (IOException e) {
+          System.out.println(Constants.FAILED_TO_SAVE_CHANGES);
+          e.printStackTrace();
+        }
       } else {
         System.out.println("Doctor not removed");
       }

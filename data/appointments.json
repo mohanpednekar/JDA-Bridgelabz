@@ -1,2 +1,12 @@
 {
+  "appointments": [
+    {
+      "doctorId": 1,
+      "date": "21-10-2018",
+      "slot": "AM",
+      "patientIds": [
+        1
+      ]
+    }
+  ]
 }

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import com.jda.clinique.models.Appointment;
 
 public class AppointmentService {
-  private ArrayList<Appointment> appointments;
-
+  private ArrayList<Appointment> appointments = new ArrayList<>();
+  
   public ArrayList<Appointment> getAppointments() {
     return appointments;
   }
-  
+
   public Appointment findAppointment(Appointment seekingAppointment) {
     for (Appointment appointment : appointments) {
       boolean match = appointment.checkMatch(seekingAppointment);
@@ -18,7 +18,7 @@ public class AppointmentService {
     }
     return null;
   }
-  
+
   public void addNewAppointment(Appointment seekingAppointment, int patientId) {
     seekingAppointment.addPatientId(patientId);
     appointments.add(seekingAppointment);

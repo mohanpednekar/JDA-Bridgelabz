@@ -13,5 +13,6 @@ public class Constants {
   public static final String APPOINTMENT_BOOKED_SUCCESSFULLY                 = "Appointment booked successfully";
   public static final String FAILED_TO_FIND_THE_REQUESTED_DOCTOR_IN_THE_SLOT = "Failed to find the requested doctor in the slot";
   public static final String THIS_SLOT_IS_FULL                               = "This slot is full.";
+  public static final String FAILED_TO_SAVE_CHANGES = "Failed to save changes";
 
 }

@@ -24,26 +24,21 @@ public class Reader {
   
   public <E extends Enum<E>> E requestInputEnum(String string, Class<E> menu) {
     System.out.println(Enums.toStringAll(menu, "\t\t"));
-    E choice = null;
-    while (choice == null) {
-      try {
-        choice = Enum.valueOf(menu, scanner.next().toUpperCase());
-      } catch (Exception e) {
-        choice = null;
-      }
-    }
-    return choice;
+    try {
+      return Enum.valueOf(menu, scanner.next().toUpperCase());
+    } catch (Exception ignored) {}
+    return null;
   }
   
   public Date requestInputDate(String prompt) {
     System.out.println(prompt);
-    Date date;
+    scanner.nextLine();
+    String inputDate = scanner.nextLine();
+    // System.out.println("**" + inputDate + "**");
     try {
-      date = new SimpleDateFormat(Constants.DATE_FORMAT).parse(scanner.nextLine());
-    } catch (ParseException e) {
-      return null;
-    }
-    return date;
+      return new SimpleDateFormat(Constants.DATE_FORMAT).parse(inputDate);
+    } catch (ParseException ignored) {}
+    return null;
   }
   
   public long requestInputLong(String prompt) {
