@@ -13,17 +13,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
 import com.jda.clinique.util.Constants;
 
 public class FileSystemService {
-  public <T> T readFile(String pathname) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
+  public <T> T readFile(String pathname, Type type) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
     File file = new File(pathname);
     Gson gson = new GsonBuilder().setDateFormat(Constants.DATE_FORMAT).create();
-    Type type = new TypeToken<T>() {}.getType();
+    System.out.println(type.getTypeName());
+    System.out.println(file.getAbsolutePath());
     return gson.fromJson(new BufferedReader(new FileReader(file)), type);
   }
-  
+
   public <T> void saveFile(T item, String pathname) throws IOException {
     File file = new File(pathname);
     file.createNewFile();

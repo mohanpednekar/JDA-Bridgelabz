@@ -24,6 +24,15 @@ public class DoctorView {
       case SEARCH:
         doctorViewController.searchDoctors();
         break;
+      case ADD:
+        doctorViewController.addDoctor();
+        break;
+      case BACK:
+        doctorViewController.openMainMenu();
+        break;
+      case REMOVE:
+        doctorViewController.removeDoctor();
+        break;
     }
   }
 

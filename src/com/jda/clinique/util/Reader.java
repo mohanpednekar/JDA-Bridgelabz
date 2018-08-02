@@ -50,4 +50,9 @@ public class Reader {
     System.out.println(prompt);
     return scanner.nextLong();
   }
+
+  public boolean requestConfirmation(String prompt) {
+    System.out.println(prompt);
+    return scanner.next().toLowerCase().charAt(0) == 'y';
+  }
 }

@@ -2,7 +2,7 @@ package com.jda.clinique.models;
 
 public abstract class Person {
   protected String name;
-  protected String id;
+  protected int    id;
   
   public String getName() {
     return name;
@@ -12,11 +12,11 @@ public abstract class Person {
     this.name = name;
   }
   
-  public String getId() {
+  public int getId() {
     return id;
   }
   
-  public void setId(String id) {
+  public void setId(int id) {
     this.id = id;
   }
 }

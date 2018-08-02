@@ -1,11 +1,14 @@
 package com.jda.clinique.controllers;
 
 import java.io.FileNotFoundException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
+import com.jda.clinique.app.CliniqueManagerApp;
 import com.jda.clinique.models.Appointment;
 import com.jda.clinique.models.Doctor;
 import com.jda.clinique.services.AppointmentService;
@@ -22,16 +25,18 @@ public class DoctorViewController {
   
   public DoctorViewController() throws JsonIOException, JsonSyntaxException, FileNotFoundException {
     FileSystemService fileSystemService = new FileSystemService();
-    appointmentService = fileSystemService.readFile(Path.APPOINTMENTS);
-    doctorService = fileSystemService.readFile(Path.DOCTORS);
+    Type appointmentsType = new TypeToken<AppointmentService>() {}.getType();
+    appointmentService = fileSystemService.readFile(Path.APPOINTMENTS, appointmentsType);
+    Type doctorsType = new TypeToken<DoctorService>() {}.getType();
+    doctorService = fileSystemService.readFile(Path.DOCTORS, doctorsType);
   }
   
   public void bookAppointment() {
     Reader reader = new Reader();
-    String doctorId = reader.requestInputLine("Enter Doctor ID : ");
+    int doctorId = reader.requestInputInt("Enter Doctor ID : ");
     Date date = reader.requestInputDate("Enter date (" + Constants.DATE_FORMAT.toUpperCase() + ") : ");
     AppointmentSlot slot = reader.requestInputEnum("Choose slot : ", AppointmentSlot.class);
-    String patientId = reader.requestInputLine("Enter Patient ID : ");
+    int patientId = reader.requestInputInt("Enter Patient ID : ");
     Appointment seekingAppointment = new Appointment(doctorId, date, slot);
     Appointment existingAppointment = appointmentService.findAppointment(seekingAppointment);
     if (existingAppointment == null) {
@@ -42,7 +47,7 @@ public class DoctorViewController {
     }
   }
 
-  private void attemptNewAppointment(Appointment seekingAppointment, String patientId) {
+  private void attemptNewAppointment(Appointment seekingAppointment, int patientId) {
     Doctor seekingDoctor = doctorService.find(seekingAppointment.getDoctorId());
     if ((seekingDoctor != null) && seekingDoctor.isAvailable(seekingAppointment.getSlot())) {
       appointmentService.addNewAppointment(seekingAppointment, patientId);
@@ -52,7 +57,7 @@ public class DoctorViewController {
     }
   }
 
-  private void attemptExistingAppointment(Appointment existingAppointment, String patientId) {
+  private void attemptExistingAppointment(Appointment existingAppointment, int patientId) {
     if (existingAppointment.numberOfBookings() < 5) {
       existingAppointment.addPatientId(patientId);
       System.out.println(Constants.APPOINTMENT_BOOKED_SUCCESSFULLY);
@@ -65,12 +70,41 @@ public class DoctorViewController {
     System.out.println("Enter requested search parameters. Enter x to skip.");
     Reader reader = new Reader();
     String name = reader.requestInputLine("Enter Doctor aame : ");
-    String doctorId = reader.requestInputLine("Enter Doctor ID : ");
+    int doctorId = reader.requestInputInt("Enter Doctor ID : ");
     AppointmentSlot availabilty = reader.requestInputEnum("Enter availability needed : ", AppointmentSlot.class);
     String specialisation = reader.requestInputLine("Enter Specialisation : ");
     ArrayList<Doctor> doctorsFound = doctorService.findMatchesSkippable(name, doctorId, availabilty, specialisation);
     System.out.println("\nWe found following doctors");
     doctorsFound.forEach(System.out::println);
+  }
+  
+  public void openMainMenu() {
+    CliniqueManagerApp app = new CliniqueManagerApp();
+    app.execute();
+  }
+  
+  public void addDoctor() {
+    Reader reader = new Reader();
+    int highestId = doctorService.findHighestId();
+    Doctor doctor = new Doctor(reader, highestId);
+    doctorService.addDoctor(doctor);
+  }
+
+  public void removeDoctor() {
+    Reader reader = new Reader();
+    int doctorId = reader.requestInputInt("Enter Doctor ID : ");
+    Doctor doctor = doctorService.find(doctorId);
+    if (doctor == null) {
+      System.out.println("No such doctor found.");
+    } else {
+      boolean confirmDelete = reader.requestConfirmation("Confirm remove Dr. " + doctor.getName() + "?");
+      if (confirmDelete) {
+        doctorService.removeDoctor(doctor);
+        System.out.println("Doctor removed");
+      } else {
+        System.out.println("Doctor not removed");
+      }
+    }
   }
   
 }

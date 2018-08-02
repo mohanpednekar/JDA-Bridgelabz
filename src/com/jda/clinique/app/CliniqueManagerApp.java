@@ -22,17 +22,17 @@ public class CliniqueManagerApp {
   private DoctorViewController   doctorViewController;
   private InsightsViewController insightsViewController;
   private PatientViewController  patientViewController;
-  
+
   public CliniqueManagerApp() {
     fileSystemService = new FileSystemService();
   }
-  
+
   public static void main(String[] args) {
     CliniqueManagerApp app = new CliniqueManagerApp();
     app.execute();
   }
-  
-  private void execute() {
+
+  public void execute() {
     System.out.println("Welcome to JDA Clinique");
     Reader reader = new Reader();
     MainMenu menuItem = reader.requestInputEnum("Enter screen name : ", MainMenu.class);
@@ -79,16 +79,16 @@ public class CliniqueManagerApp {
       case QUIT:
         quit();
         break;
-
+      
     }
-
+    
   }
-
+  
   private void quit() {
     System.out.println("Housekeeping...");
     // GUI housekeeping work... Nothing here..
     System.out.println("done.");
     System.out.println("Bye..");
   }
-
+  
 }

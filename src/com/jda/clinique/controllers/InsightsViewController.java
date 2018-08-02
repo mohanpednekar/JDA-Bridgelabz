@@ -1,10 +1,12 @@
 package com.jda.clinique.controllers;
 
 import java.io.FileNotFoundException;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 import com.jda.clinique.models.Appointment;
 import com.jda.clinique.models.Doctor;
 import com.jda.clinique.services.AppointmentService;
@@ -15,13 +17,15 @@ import com.jda.clinique.util.Constants.Path;
 public class InsightsViewController {
   AppointmentService appointmentService;
   DoctorService      doctorService;
-  
+
   public InsightsViewController() throws JsonIOException, JsonSyntaxException, FileNotFoundException {
     FileSystemService fileSystemService = new FileSystemService();
-    appointmentService = fileSystemService.readFile(Path.APPOINTMENTS);
-    doctorService = fileSystemService.readFile(Path.DOCTORS);
+    Type appointmentsType = new TypeToken<AppointmentService>() {}.getType();
+    appointmentService = fileSystemService.readFile(Path.APPOINTMENTS, appointmentsType);
+    Type doctorsType = new TypeToken<DoctorService>() {}.getType();
+    doctorService = fileSystemService.readFile(Path.DOCTORS, doctorsType);
   }
-  
+
   public void showPopularDoctor() {
     HashMap<String, Integer> bookingsCount = new HashMap<>();
     String mostPopular = null;
@@ -35,11 +39,11 @@ public class InsightsViewController {
         mostPopular = id;
       }
     }
-
+    
     Doctor popularDoctor = doctorService.find(mostPopular);
     System.out.println(popularDoctor);
   }
-
+  
   public void showPopularSpecialisation() {
     HashMap<String, Integer> bookingsCount = new HashMap<>();
     String mostPopular = null;
@@ -54,7 +58,7 @@ public class InsightsViewController {
       }
     }
     System.out.println(mostPopular);
-    
+
   }
-  
+
 }
