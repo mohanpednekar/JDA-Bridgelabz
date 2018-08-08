@@ -1,12 +1,13 @@
 package com.jda.models;
 
+import com.jda.interfaces.AddressBookInterface;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import com.jda.interfaces.AddressBookInterface;
-
-public class AddressBook implements AddressBookInterface {
+public
+class AddressBookJson implements AddressBookInterface {
   private ArrayList<Person> collection     = new ArrayList<>();
   private transient File    file;
   private transient boolean changedSinceLastSave;
@@ -105,11 +106,11 @@ public class AddressBook implements AddressBookInterface {
   public void setChangedSinceLastSave(boolean changedSinceLastSave) {
     this.changedSinceLastSave = changedSinceLastSave;
   }
-  
+
   public Integer getSelectedPerson() {
     return selectedPerson;
   }
-  
+
   public void setSelectedPerson(Integer selectedPerson) {
     this.selectedPerson = selectedPerson;
     if (selectedPerson != null) {

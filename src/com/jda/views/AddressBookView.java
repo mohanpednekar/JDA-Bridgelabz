@@ -1,23 +1,27 @@
 package com.jda.views;
 
 import com.jda.controllers.AddressBookController;
-import com.jda.models.AddressBook;
+import com.jda.models.AddressBookJson;
+import com.jda.util.Constants;
 
 public class AddressBookView {
   private AddressBookController addressBookController;
-  private AddressBook           addressBook;
+	private AddressBookJson addressBook;
   // private ArrayList<String> nameList;
 
-  public AddressBookView(AddressBookController addressBookController, AddressBook addressBook) {
+	public
+	AddressBookView(AddressBookController addressBookController, AddressBookJson addressBook) {
     this.addressBookController = addressBookController;
     this.addressBook = addressBook;
   }
 
-  public AddressBook getAddressBook() {
+	public
+	AddressBookJson getAddressBook() {
     return addressBook;
   }
 
-  public void setAddressBook(AddressBook addressBook) {
+	public
+	void setAddressBook(AddressBookJson addressBook) {
     this.addressBook = addressBook;
   }
 
@@ -25,7 +29,8 @@ public class AddressBookView {
     System.err.println(message);
   }
 
-  public void update(MenuItems menuItem) {
+	public
+	void update(Constants.MenuItems menuItem) {
     switch (menuItem) {
       case ADD:
         addressBookController.addPerson();
@@ -87,7 +92,4 @@ public class AddressBookView {
     }
   }
 
-  enum MenuItems {
-    NEW, OPEN, SAVE, SAVEAS, PRINT, QUIT, ADD, EDIT, DELETE, SORTBYNAME, SORTBYZIP, SELECT
-  }
 }

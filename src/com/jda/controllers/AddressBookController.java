@@ -1,20 +1,18 @@
 package com.jda.controllers;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import com.jda.models.AddressBook;
-import com.jda.models.FileSystem;
+import com.jda.models.AddressBookJson;
+import com.jda.models.FileSystemJson;
 import com.jda.util.Reader;
 import com.jda.views.AddressBookView;
 
+import java.io.File;
+import java.util.ArrayList;
+
 public class AddressBookController {
   private AddressBookView addressBookView;
-  private FileSystem      fileSystem;
+	private FileSystemJson fileSystem;
 
   public void addPerson() {
     Reader reader = new Reader();
@@ -25,12 +23,12 @@ public class AddressBookController {
     String state = reader.requestLine("State");
     String zip = reader.requestLine("ZIP");
     String phone = reader.requestLine("Phone");
-    AddressBook addressBook = addressBookView.getAddressBook();
+	  AddressBookJson addressBook = addressBookView.getAddressBook();
     addressBook.addPerson(firstName, lastName, address, city, state, zip, phone);
   }
-  
+
   public void editPerson(int index) {
-    AddressBook addressBook = addressBookView.getAddressBook();
+	  AddressBookJson addressBook = addressBookView.getAddressBook();
     String fullName = addressBook.getFullNameOfPerson(index);
     System.out.println(fullName);
     ArrayList<String> info = addressBook.getOtherPersonInformation(index);
@@ -48,9 +46,9 @@ public class AddressBookController {
       System.out.println("Cancelled editing person");
     }
   }
-  
+
   public void deletePerson(Integer index) {
-    AddressBook addressBook = addressBookView.getAddressBook();
+	  AddressBookJson addressBook = addressBookView.getAddressBook();
     String fullName = addressBook.getFullNameOfPerson(index);
     Reader reader = new Reader();
     System.out.println(fullName);
@@ -61,20 +59,20 @@ public class AddressBookController {
       System.out.println("Cancelled removing person");
     }
   }
-  
+
   public void sortByName() {
-    AddressBook addressBook = addressBookView.getAddressBook();
+	  AddressBookJson addressBook = addressBookView.getAddressBook();
     addressBook.sortByName();
 
   }
-  
+
   public void sortByZip() {
-    AddressBook addressBook = addressBookView.getAddressBook();
+	  AddressBookJson addressBook = addressBookView.getAddressBook();
     addressBook.sortByZip();
   }
-  
+
   public void printAll() {
-    AddressBook addressBook = addressBookView.getAddressBook();
+	  AddressBookJson addressBook = addressBookView.getAddressBook();
     addressBook.printAll();
   }
 
@@ -87,33 +85,29 @@ public class AddressBookController {
       System.out.println("Changes discarded");
     }
   }
-  
+
   public void saveAddressBook() {
-    AddressBook addressBook = addressBookView.getAddressBook();
+	  AddressBookJson addressBook = addressBookView.getAddressBook();
     File file = addressBook.getFile();
     if (file == null) {
       saveAddressBookAs();
     } else {
-      try {
-        fileSystem.saveFile(addressBook, file);
-      } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      }
+	    fileSystem.saveFile(addressBook, file);
     }
   }
-  
+
   public void saveAddressBookAs() {
     Reader reader = new Reader();
     String addressBookName = reader.requestLine("Enter name for Address Book");
     File file = fileSystem.fetchFile(addressBookName);
-    AddressBook addressBook = addressBookView.getAddressBook();
+	  AddressBookJson addressBook = addressBookView.getAddressBook();
     addressBook.setFile(file);
     saveAddressBook();
   }
-  
-  public void createNewAddressBook() {
-    AddressBook addressBook = new AddressBook();
+
+	public
+	void createNewAddressBook() {
+		AddressBookJson addressBook = new AddressBookJson();
     addressBookView.setAddressBook(addressBook);
     System.out.println("New addressbook created");
   }
@@ -124,24 +118,17 @@ public class AddressBookController {
     File file = fileSystem.fetchFile(addressBookName);
 
     try {
-      AddressBook addressBook = fileSystem.readFile(file);
+	    AddressBookJson addressBook = fileSystem.readFile(file);
       addressBook.setFile(file);
       addressBookView.setAddressBook(addressBook);
-    } catch (JsonIOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    } catch (JsonSyntaxException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    } catch (FileNotFoundException e) {
+    } catch (JsonIOException | JsonSyntaxException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    
   }
-  
-  public void selectPerson() {
-    AddressBook addressBook = addressBookView.getAddressBook();
+
+	public void selectPerson() {
+		AddressBookJson addressBook = addressBookView.getAddressBook();
     int count = addressBook.getNumberOfPersons();
     Reader reader = new Reader();
     int selected = Integer.parseInt(reader.requestLine("Enter the person number"));
@@ -149,9 +136,10 @@ public class AddressBookController {
       addressBook.setSelectedPerson(selected);
     }
   }
-  
-  public Integer getSelectedPerson() {
-    AddressBook addressBook = addressBookView.getAddressBook();
+
+	public
+	Integer getSelectedPerson() {
+		AddressBookJson addressBook = addressBookView.getAddressBook();
     return addressBook.getSelectedPerson();
   }
 
@@ -159,7 +147,8 @@ public class AddressBookController {
     this.addressBookView = addressBookView;
   }
 
-  public void setFileSystem(FileSystem fileSystem) {
+	public
+	void setFileSystem(FileSystemJson fileSystem) {
     this.fileSystem = fileSystem;
   }
 }
