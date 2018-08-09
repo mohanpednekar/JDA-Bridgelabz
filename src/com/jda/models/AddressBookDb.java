@@ -118,7 +118,12 @@ class AddressBookDb implements AddressBookInterface {
 	@Override
 	public
 	void removePerson(int index) {
-//TODO
+		try (Connection conn = DriverManager.getConnection(dbUrl, props);
+		     PreparedStatement ps = conn.prepareStatement("delete from " + ADDRESS_BOOK + " where id =" + index)) {
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -136,7 +141,13 @@ class AddressBookDb implements AddressBookInterface {
 	@Override
 	public
 	void printAll() {
-//TODO
+		try (Connection conn = DriverManager.getConnection(dbUrl, props);
+		     PreparedStatement ps = conn.prepareStatement("select * from " + ADDRESS_BOOK);
+		     ResultSet rs = ps.executeQuery()) {
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
