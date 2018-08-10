@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.jda.dynamic.model.User;
 import com.jda.dynamic.repository.UserRepository;
@@ -31,7 +32,12 @@ public class UserLoginServlet extends HttpServlet {
       user.setEmail(username);
       withEmail = true;
     }
+
     if (repo.exists(user, withEmail)) {
+      HttpSession session = req.getSession();
+      session.setAttribute("user.name", user.getName());
+      session.setAttribute("user.email", user.getEmail());
+      session.setAttribute("user.phone", user.getPhone());
       resp.sendRedirect("welcome.html");
       return;
     } else {
