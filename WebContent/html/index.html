@@ -7,13 +7,15 @@
     <script src="js/index.js"></script>
 </head>
 <body>
-<form name="regForm" onsubmit="return check()" action="validate" method="post">
+<h1> Login</h1>
+<form name="regForm" onsubmit="return check()" action="register" method="post">
     <label>Name : <input type="text" name="name" value="mohan"></label> <br>
     <label>Email : <input type="email" name="email" value="pednekar.mohan@gmail.com"> </label><br>
     <label>Phone : <input type="number" name="phone" value="9876543210"> </label><br>
     <label>Password : <input type="password" name="password1" value="pass"></label><br>
     <label>Confirm Password : <input type="password" name="password2" value="pass"></label><br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Register">
 </form>
+<a href="html/login.html">Already registered? Click here to login.</a>
 </body>
 </html>

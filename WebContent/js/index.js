@@ -1,3 +1,6 @@
+function checkLogin(){
+	return true;
+}
 function check() {
     var name = document.forms["regForm"]["name"].value;
     if (name === "") {
@@ -28,9 +31,9 @@ function check() {
         alert("Password should not be empty");
         return false;
     }
-    if (pass1 !== pass2) {
-        alert("Passwords do not match");
-        return false;
-    }
+//    if (pass1 !== pass2) {
+//        alert("Passwords do not match");
+//        return false;
+//    }
     else return true;
 }
