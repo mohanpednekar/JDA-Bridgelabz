@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,18 +33,21 @@ public class UserLoginServlet extends HttpServlet {
       user.setEmail(username);
       withEmail = true;
     }
-
+    user.setPassword(pass);
+    
     if (repo.exists(user, withEmail)) {
       HttpSession session = req.getSession();
-      session.setAttribute("user.name", user.getName());
-      session.setAttribute("user.email", user.getEmail());
-      session.setAttribute("user.phone", user.getPhone());
-      resp.sendRedirect("welcome.html");
+      session.setAttribute("user", user);
+      session.setMaxInactiveInterval(15 * 60);
+      Cookie userId = new Cookie("userName", user.getName());
+      userId.setMaxAge(15 * 60);
+      resp.addCookie(userId);
+      resp.sendRedirect("welcome.jsp");
       return;
     } else {
       PrintWriter out = resp.getWriter();
       out.println("<font color=red>Failed to Login</font>");
-      RequestDispatcher rd = req.getRequestDispatcher("login.html");
+      RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
       rd.include(req, resp);
       return;
     }

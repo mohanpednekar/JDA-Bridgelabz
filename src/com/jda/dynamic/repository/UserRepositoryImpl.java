@@ -16,15 +16,13 @@ public class UserRepositoryImpl implements UserRepository {
   private static String     dbUrl;
   private static String     tableName;
   private static Properties props = new Properties();
-  private static String     driver;
-
-  public UserRepositoryImpl() {}
   
+  public UserRepositoryImpl() {}
+
   static {
     dbName = "db1000202";
     dbHost = "jdbc:mysql://10.0.0.160:3306/";
     dbUrl = dbHost + dbName;
-    driver = "com.mysql.cj.jdbc.Driver";
     props.put("user", "u1000202");
     props.put("password", "B1jCkmoOot");
     tableName = dbName + ".users";
@@ -35,9 +33,9 @@ public class UserRepositoryImpl implements UserRepository {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-
+    
   }
-
+  
   @Override
   public void save(User user) {
     String name = user.getName();
@@ -60,23 +58,25 @@ public class UserRepositoryImpl implements UserRepository {
       e.printStackTrace();
     }
   }
-
+  
   @Override
   public boolean exists(User user, boolean withEmail) {
     String username = withEmail ? user.getEmail() : user.getPhone();
     String password = user.getPassword();
-
+    
     try (Connection conn = DriverManager.getConnection(dbUrl, props);
-        PreparedStatement ps = conn.prepareStatement("select * from " + tableName + " where ? = ? and password = ?")) {
-      ps.setString(1, withEmail ? "email" : "phone");
-      ps.setString(2, username);
-      ps.setString(3, password);
+        PreparedStatement ps = conn
+            .prepareStatement("select * from " + tableName + " where email = ? and password = ?")) {
+      // ps.setString(1, withEmail ? "email" : "phone");
+      ps.setString(1, username);
+      ps.setString(2, password);
       System.out.println(ps.toString());
       try (ResultSet rs = ps.executeQuery()) {
         if (rs.next()) {
-          user.setName(rs.getString(1));
-          user.setEmail(rs.getString(2));
-          user.setPhone(rs.getString(3));
+          System.out.println(rs.toString());
+          user.setName(rs.getString(2));
+          user.setEmail(rs.getString(3));
+          user.setPhone(rs.getString(4));
           System.out.println(user.getName());
           return true;
         }
@@ -86,5 +86,5 @@ public class UserRepositoryImpl implements UserRepository {
     }
     return false;
   }
-  
+
 }
