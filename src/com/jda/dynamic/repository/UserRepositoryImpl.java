@@ -27,10 +27,8 @@ public class UserRepositoryImpl implements UserRepository {
     props.put("password", "B1jCkmoOot");
     tableName = dbName + ".users";
     try {
-      // Class.forName(driver);
       DriverManager.registerDriver(new Driver());
     } catch (SQLException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
     
@@ -70,14 +68,14 @@ public class UserRepositoryImpl implements UserRepository {
       // ps.setString(1, withEmail ? "email" : "phone");
       ps.setString(1, username);
       ps.setString(2, password);
-      System.out.println(ps.toString());
+      // System.out.println(ps.toString());
       try (ResultSet rs = ps.executeQuery()) {
         if (rs.next()) {
-          System.out.println(rs.toString());
+          // System.out.println(rs.toString());
           user.setName(rs.getString(2));
           user.setEmail(rs.getString(3));
           user.setPhone(rs.getString(4));
-          System.out.println(user.getName());
+          // System.out.println(user.getName());
           return true;
         }
       }
