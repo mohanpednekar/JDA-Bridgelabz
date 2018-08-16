@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--    <bean id="answer1" class="com.jda.didemo.beans.Answer">
+            <constructor-arg value="1"></constructor-arg>
+            <constructor-arg value="Java is a Programming Language"></constructor-arg>
+            <constructor-arg value="12/12/2001"></constructor-arg>
+        </bean>
+        <bean id="answer2" class="com.jda.didemo.beans.Answer">
+            <constructor-arg value="2"></constructor-arg>
+            <constructor-arg value="Java is a Platform"></constructor-arg>
+            <constructor-arg value="12/12/2003"></constructor-arg>
+        </bean>
+
+        <bean id="user1" class="com.jda.didemo.beans.User">
+            <constructor-arg value="1"></constructor-arg>
+            <constructor-arg value="Arun Kumar"></constructor-arg>
+            <constructor-arg value="arun@gmail.com"></constructor-arg>
+        </bean>
+        <bean id="user2" class="com.jda.didemo.beans.User">
+            <constructor-arg value="2"></constructor-arg>
+            <constructor-arg value="Varun Kumar"></constructor-arg>
+            <constructor-arg value="Varun@gmail.com"></constructor-arg>
+        </bean>
+
+
+        <bean id="q" class="com.jda.didemo.beans.Question">
+            <constructor-arg value="111"/>
+            <constructor-arg value="What is java?"/>
+            <constructor-arg>
+                <map>
+                    <entry key-ref="answer1" value-ref="user1"></entry>
+                    <entry key-ref="answer2" value-ref="user2"></entry>
+                </map>
+            </constructor-arg>
+        </bean>-->
+
+    <bean id="address2" class="com.jda.didemo.beans.Address">
+        <property name="addressLine1" value="51,Lohianagar"></property>
+        <property name="city" value="Ghaziabad"></property>
+        <property name="state" value="UP"></property>
+        <property name="country" value="India"></property>
+    </bean>
+
+    <bean id="obj" class="com.jda.didemo.beans.Employee">
+        <property name="id" value="1"></property>
+        <property name="name" value="Sachin Yadav"></property>
+        <property name="address" ref="address2"></property>
+    </bean>
+
+    <bean id="e1" class="com.jda.didemo.beans.Employee">
+        <constructor-arg value="101"></constructor-arg>
+        <constructor-arg value="Sachin"></constructor-arg>
+    </bean>
+
+
+    <bean id="e2" class="com.jda.didemo.beans.Employee" parent="e1">
+        <constructor-arg ref="address2"></constructor-arg>
+    </bean>
+
+
+    <bean id="b" class="com.jda.didemo.beans.B"/>
+    <bean id="a" class="com.jda.didemo.beans.A" autowire="byName"/>
+
+
+    <bean id="answer1" class="com.jda.didemo.beans.Answer">
+        <property name="id" value="1"></property>
+        <property name="answer" value="Java is a Programming Language"></property>
+        <property name="postedDate" value="12/12/2001"></property>
+    </bean>
+    <bean id="answer2" class="com.jda.didemo.beans.Answer">
+        <property name="id" value="2"></property>
+        <property name="answer" value="Java is a Platform"></property>
+        <property name="postedDate" value="12/12/2003"></property>
+    </bean>
+
+    <bean id="user1" class="com.jda.didemo.beans.User">
+        <property name="id" value="1"></property>
+        <property name="name" value="Arun Kumar"></property>
+        <property name="email" value="arun@gmail.com"></property>
+    </bean>
+    <bean id="user2" class="com.jda.didemo.beans.User">
+        <property name="id" value="2"></property>
+        <property name="name" value="Varun Kumar"></property>
+        <property name="email" value="Varun@gmail.com"></property>
+    </bean>
+
+    <bean id="q" class="com.jda.didemo.beans.Question">
+        <property name="id" value="1"></property>
+        <property name="name" value="What is Java?"></property>
+        <property name="answers">
+            <map>
+                <entry key-ref="answer1" value-ref="user1"></entry>
+                <entry key-ref="answer2" value-ref="user2"></entry>
+            </map>
+        </property>
+    </bean>
+
+
+</beans>
