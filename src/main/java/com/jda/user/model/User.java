@@ -1,13 +1,16 @@
 package com.jda.user.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+
 	private String username;
 	private String password;
 	private String firstname;
 	private String lastname;
 	private String email;
 	private String address;
-	private int phone;
+	private String phone;
 
 	@Override
 	public String toString() {
@@ -18,7 +21,7 @@ public class User {
 				", lastname='" + lastname + '\'' +
 				", email='" + email + '\'' +
 				", address='" + address + '\'' +
-				", phone=" + phone +
+				", phone='" + phone + '\'' +
 				'}';
 	}
 
@@ -70,11 +73,11 @@ public class User {
 		this.address = address;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 }
