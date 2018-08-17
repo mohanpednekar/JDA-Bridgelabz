@@ -23,9 +23,18 @@
         <servlet.version>3.1.0</servlet.version>
         <servlet.version>3.0.1</servlet.version>
         <mysql.connector.version>8.0.12</mysql.connector.version>
+        <log4j.version>1.2.17</log4j.version>
+        <hibernate.validator.version>6.0.12.Final</hibernate.validator.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -41,7 +50,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>5.4.1.Final</version>
+            <version>${hibernate.validator.version}</version>
         </dependency>
 
         <!--Servlet-Api -->
