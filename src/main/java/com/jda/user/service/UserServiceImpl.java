@@ -16,4 +16,21 @@ public class UserServiceImpl implements UserService {
 	public User validateUser(Login login) {
 		return userDao.validateUser(login);
 	}
+
+	@Override
+	public User findUserByEmail(String email) {
+		return userDao.findUser("email", email);
+	}
+
+	@Override
+	public User findUserByResetToken(String resetToken) {
+		return userDao.findUser("resetToken", resetToken);
+	}
+
+	@Override
+	public void createPasswordResetTokenForUser(User user, String token) {
+		userDao.setResetToken(user, token);
+	}
+
+
 }

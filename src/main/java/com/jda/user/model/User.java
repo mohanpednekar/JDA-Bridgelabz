@@ -11,6 +11,7 @@ public class User implements Serializable {
 	private String email;
 	private String address;
 	private String phone;
+	private String resetToken;
 
 	@Override
 	public String toString() {
@@ -22,6 +23,7 @@ public class User implements Serializable {
 				", email='" + email + '\'' +
 				", address='" + address + '\'' +
 				", phone='" + phone + '\'' +
+				", resetToken='" + resetToken + '\'' +
 				'}';
 	}
 
@@ -79,5 +81,13 @@ public class User implements Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getResetToken() {
+		return resetToken;
+	}
+
+	public void setResetToken(String resetToken) {
+		this.resetToken = resetToken;
 	}
 }

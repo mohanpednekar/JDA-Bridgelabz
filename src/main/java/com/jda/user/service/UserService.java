@@ -9,4 +9,10 @@ public interface UserService {
 
 	User validateUser(Login login);
 
+	User findUserByEmail(String email);
+
+	User findUserByResetToken(String resetToken);
+
+	void createPasswordResetTokenForUser(User user, String token);
+
 }

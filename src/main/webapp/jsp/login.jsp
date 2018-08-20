@@ -24,6 +24,7 @@
             <td>
                 <form:password path="password" name="password" id="password" />
             </td>
+
         </tr>
         <tr>
             <td></td>
@@ -34,7 +35,9 @@
         <tr></tr>
         <tr>
             <td></td>
-            <td><a href="home.jsp">Home</a>
+            <td>
+                <a href="home.jsp">Home</a>
+                <a href="/forgot">Forgot Password?</a>
             </td>
         </tr>
     </table>
