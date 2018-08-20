@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class WelcomeController {
 	private static final Logger logger = Logger.getLogger(WelcomeController.class);
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public ModelAndView getWelcome() {
 
 		//logs debug message
@@ -19,7 +19,8 @@ public class WelcomeController {
 		}
 
 		//logs exception
-		logger.error("This is Error message", new Exception("Testing"));
+		Exception e = new Exception("Testing");
+		logger.error("This is Error message", e.getCause());
 
 		ModelAndView model = new ModelAndView("welcome");
 		model.addObject("msg", "Hello Spring MVC + Log4j");

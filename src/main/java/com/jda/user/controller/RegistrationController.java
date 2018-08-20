@@ -1,6 +1,7 @@
 package com.jda.user.controller;
 
 import com.jda.user.model.User;
+import com.jda.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -13,12 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class UserController {
+public class RegistrationController {
 	User user = new User();
 
 	@Autowired
 	private Validator validator;
 
+	@Autowired
+	UserService userService;
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
 		binder.setValidator(validator);
@@ -32,7 +35,9 @@ public class UserController {
 	@PostMapping("/registerProcess")
 	public ModelAndView create(@ModelAttribute("user") User user, BindingResult bindingResult) throws SecurityException {
 		System.out.println("UserController: create");
-		ModelAndView model = new ModelAndView("view");
+		userService.register(user);
+		ModelAndView model = new ModelAndView("redirect:/login");
+
 		validator.validate(user, bindingResult);
 
 		if (bindingResult.hasErrors()) {

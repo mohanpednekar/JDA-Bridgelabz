@@ -18,6 +18,7 @@ public class RegistrationFormValidator implements Validator {
 		if (!(user.getUsername().matches("[a-zA-Z ]*$"))) {
 			errors.rejectValue("username", "symbolsPresent", new Object[]{"'username'"}, "name can't be symbols");
 		}
+
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "username.required", "Name is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.required", "Password is required");
 		ValidationUtils.rejectIfEmpty(errors, "phone", "phone.required", "Phone is required");
