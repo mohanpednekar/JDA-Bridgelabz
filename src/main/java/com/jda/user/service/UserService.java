@@ -15,4 +15,5 @@ public interface UserService {
 
 	void createPasswordResetTokenForUser(User user, String token);
 
+	void savePasswordAndResetToken(User user, String password);
 }

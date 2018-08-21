@@ -9,7 +9,7 @@
 <body>
 <form id="resetPasswordForm" onsubmit="identicalPasswords()" action="resetPasswordProcess" method="post">
     <table align="center">
-        <input type="hidden" id="resetToken" value="${resetToken}"/>
+        <input type="hidden" name="resetToken" id="resetToken" value="${resetToken}"/>
         <tr>
             <td><label path="password1">Enter New Password</label></td>
             <td>

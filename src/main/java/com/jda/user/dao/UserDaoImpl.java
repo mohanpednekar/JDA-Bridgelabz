@@ -31,7 +31,9 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User findUser(String fieldName, String fieldValue) {
+
 		String sql = "select * from users where " + fieldName + "='" + fieldValue + "'";
+		System.out.println(sql);
 		List<User> users = jdbcTemplate.query(sql, new UserMapper());
 		return users.size() > 0 ? users.get(0) : null;
 	}
@@ -39,6 +41,12 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void setResetToken(User user, String token) {
 		String sql = "update users set resetToken='" + token + "' where email= '" + user.getEmail() + "'";
+		jdbcTemplate.update(sql);
+	}
+
+	@Override
+	public void setPassword(User user, String password) {
+		String sql = "update users set resetToken=null, password = '" + password + "' where email='" + user.getEmail() + "'";
 		jdbcTemplate.update(sql);
 	}
 

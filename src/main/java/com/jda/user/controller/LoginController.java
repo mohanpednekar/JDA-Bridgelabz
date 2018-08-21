@@ -79,7 +79,7 @@ public class LoginController {
 		passwordResetEmail.setTo(user.getEmail());
 		passwordResetEmail.setSubject("Password Reset Request");
 		passwordResetEmail.setText("To reset your password, click the link below:\n" + appUrl
-				+ "/resetpassword?token=" + user.getResetToken());
+				+ "/resetpassword?token=" + token);
 
 		emailService.sendEmail(passwordResetEmail);
 
@@ -99,7 +99,7 @@ public class LoginController {
 
 		User user = userService.findUserByResetToken(token);
 
-		if (userService.findUserByResetToken(token) != null) { // Token found in DB
+		if (user != null) { // Token found in DB
 			modelAndView.addObject("resetToken", token);
 		} else { // Token not found in DB
 			modelAndView.addObject("errorMessage", "Oops!  This is an invalid password reset link.");
@@ -110,20 +110,16 @@ public class LoginController {
 
 	@PostMapping("resetPasswordProcess")
 	public ModelAndView resetPassword(ModelAndView modelAndView, @RequestParam Map<String, String> requestParams, RedirectAttributes redir) {
-
-		System.out.println(requestParams.get("resetToken"));
+		String resetToken = requestParams.get("resetToken");
+		System.out.println("resetPasswordProcess: " + resetToken);
 		// Find the user associated with the reset token
-		User user = userService.findUserByResetToken(requestParams.get("resetToken"));
+		User user = userService.findUserByResetToken(resetToken);
 
 		// This should always be non-null but we check just in case
 		if (user != null) {
 
-			// Set new password
-			user.setPassword(requestParams.get("password"));
-
-			// Set the reset token to null so it cannot be used again
-			user.setResetToken(null);
-
+			String password = requestParams.get("password");
+			userService.savePasswordAndResetToken(user, password);
 			// In order to set a model attribute on a redirect, we must use
 			// RedirectAttributes
 			redir.addFlashAttribute("successMessage", "You have successfully reset your password.  You may now login.");

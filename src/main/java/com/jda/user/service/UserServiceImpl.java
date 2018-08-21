@@ -24,7 +24,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User findUserByResetToken(String resetToken) {
-		return userDao.findUser("resetToken", resetToken);
+		User user = userDao.findUser("resetToken", resetToken);
+		System.out.println("UserService: " + user);
+		return user;
 	}
 
 	@Override
@@ -32,5 +34,9 @@ public class UserServiceImpl implements UserService {
 		userDao.setResetToken(user, token);
 	}
 
+	@Override
+	public void savePasswordAndResetToken(User user, String password) {
+		userDao.setPassword(user, password);
+	}
 
 }

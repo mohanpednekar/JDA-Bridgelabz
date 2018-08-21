@@ -12,4 +12,5 @@ public interface UserDao {
 
 	void setResetToken(User user, String token);
 
+	void setPassword(User user, String password);
 }
