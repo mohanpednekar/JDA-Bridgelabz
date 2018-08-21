@@ -28,7 +28,7 @@ public class LoginController {
 	@Autowired
 	EmailService emailService;
 
-//	private static final Logger logger = Logger.getLogger(LoginController.class);
+	//	private static final Logger logger = Logger.getLogger(LoginController.class);
 
 	@GetMapping("/login")
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {

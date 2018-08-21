@@ -10,7 +10,5 @@ public interface UserDao {
 
 	User findUser(String fieldName, String fieldValue);
 
-	void setResetToken(User user, String token);
-
-	void setPassword(User user, String password);
+	void setProperty(User user, String propName, String propValue);
 }

@@ -5,28 +5,34 @@ import com.jda.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
 	@Autowired
-	DataSource datasource;
-	@Autowired
 	JdbcTemplate jdbcTemplate;
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 
 	public void register(User user) {
 		String sql = "insert into users values(?,?,?,?,?,?,?,null)";
-		jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getFirstname(),
-				user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone());
+		String encrypted = passwordEncoder.encode(user.getPassword());
+		jdbcTemplate.update(sql, user.getUsername(), encrypted, user.getFirstname(), user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone());
 	}
 
 	public User validateUser(Login login) {
-		String sql = "select * from users where username='" + login.getUsername() + "' and password='" + login.getPassword() + "'";
+		String sql = "select * from users where username='" + login.getUsername() + "'";
 		List<User> users = jdbcTemplate.query(sql, new UserMapper());
-		return users.size() > 0 ? users.get(0) : null;
+		String dbPassword = users.get(0).getPassword();
+		System.out.println("***************passwords*************");
+		System.out.println(dbPassword);
+		System.out.println(login.getPassword());
+		boolean match = passwordEncoder.matches(login.getPassword(), dbPassword);
+		System.out.println(match);
+		return match ? users.get(0) : null;
 	}
 
 	@Override
@@ -39,17 +45,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void setResetToken(User user, String token) {
-		String sql = "update users set resetToken='" + token + "' where email= '" + user.getEmail() + "'";
-		jdbcTemplate.update(sql);
+	public void setProperty(User user, String propName, String propValue) {
+		if (propName.equals("password")) propValue = passwordEncoder.encode(propValue);
+		System.out.println(propValue);
+		String sql = "update users set " + propName + "=? where email=?";
+		jdbcTemplate.update(sql, propValue, user.getEmail());
 	}
-
-	@Override
-	public void setPassword(User user, String password) {
-		String sql = "update users set resetToken=null, password = '" + password + "' where email='" + user.getEmail() + "'";
-		jdbcTemplate.update(sql);
-	}
-
 }
 
 class UserMapper implements RowMapper<User> {

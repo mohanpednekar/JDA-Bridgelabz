@@ -5,10 +5,13 @@ import com.jda.user.model.Login;
 import com.jda.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
+
 public class UserServiceImpl implements UserService {
 	@Autowired
 	public UserDao userDao;
 
+	@Transactional
 	public void register(User user) {
 		userDao.register(user);
 	}
@@ -31,12 +34,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void createPasswordResetTokenForUser(User user, String token) {
-		userDao.setResetToken(user, token);
+		userDao.setProperty(user, "resetToken", token);
 	}
 
 	@Override
+	@Transactional
 	public void savePasswordAndResetToken(User user, String password) {
-		userDao.setPassword(user, password);
+		userDao.setProperty(user, "password", password);
+		userDao.setProperty(user, "resetToken", null);
 	}
 
 }
