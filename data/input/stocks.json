@@ -1,0 +1,45 @@
+[
+  {
+    "symbol": "ICIC",
+    "name"  : "ICICI",
+    "number": 130.0,
+    "price" : 796.4
+  },
+  {
+    "symbol": "BHEL",
+    "name"  : "BHEL",
+    "number": 450.0,
+    "price" : 307.1
+  },
+  {
+    "symbol": "HIND",
+    "name"  : "Hindalco",
+    "number": 13.0,
+    "price" : 92.5
+  },
+  {
+    "name"  : "Reddy's",
+    "number": 24.0,
+    "price" : 47.5
+  },
+  {
+    "name"  : "Colgate",
+    "number": 198.0,
+    "price" : 12.7
+  },
+  {
+    "name"  : "A company",
+    "number": 20.0,
+    "price" : 78.3
+  },
+  {
+    "name"  : "Cipla",
+    "number": 30.0,
+    "price" : 75.4
+  },
+  {
+    "name"  : "Tata Motors",
+    "number": 34.0,
+    "price" : 93.4
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "pulses": [
+    {
+      "name": "Quaker",
+      "weight": 20,
+      "priceperkg": 20
+    }
+  ],
+  "wheat": [
+    {
+      "name": "Ashirvad",
+      "weight": 50,
+      "priceperkg": 3
+    }
+  ],
+  "rice": [
+    {
+      "name": "Basmati",
+      "weight": 100,
+      "priceperkg": 10
+    }
+  ]
+}

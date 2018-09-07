@@ -1,0 +1,119 @@
+[
+  {
+    "customerId": 1,
+    "symbol": "TELCO",
+    "tradeType": "BUY",
+    "amount": 3000.0,
+    "shares": 10.0,
+    "timestamp": 1532501170287,
+    "id": 1
+  },
+  {
+    "customerId": 1,
+    "symbol": "TELCO",
+    "tradeType": "BUY",
+    "amount": 3000.0,
+    "shares": 10.0,
+    "timestamp": 1532534393310,
+    "id": 2
+  },
+  {
+    "customerId": 1,
+    "symbol": "RELI",
+    "tradeType": "BUY",
+    "amount": 2000.0,
+    "shares": 4.623208506703652,
+    "timestamp": 1532587240108,
+    "id": 3
+  },
+  {
+    "customerId": 1,
+    "symbol": "RELI",
+    "tradeType": "BUY",
+    "amount": 1030.0,
+    "shares": 2.380952380952381,
+    "timestamp": 1532588483058,
+    "id": 4
+  },
+  {
+    "customerId": 1,
+    "symbol": "RELI",
+    "tradeType": "BUY",
+    "amount": 1500.0,
+    "shares": 3.467406380027739,
+    "timestamp": 1532588796672,
+    "id": 5
+  },
+  {
+    "customerId": 1,
+    "symbol": "RELI",
+    "tradeType": "SELL",
+    "amount": 2000.0,
+    "shares": 4.623208506703652,
+    "timestamp": 1532588856662,
+    "id": 6
+  },
+  {
+    "customerId": 1,
+    "symbol": "TELCO",
+    "tradeType": "SELL",
+    "amount": 3000.0,
+    "shares": 10.0,
+    "timestamp": 1532588885598,
+    "id": 7
+  },
+  {
+    "customerId": 2,
+    "symbol": "ICIC",
+    "tradeType": "BUY",
+    "amount": 4000.0,
+    "shares": 20.0,
+    "timestamp": 1532595493730,
+    "id": 8
+  },
+  {
+    "customerId": 1,
+    "symbol": "RELI",
+    "tradeType": "SELL",
+    "amount": 2000.0,
+    "shares": 4.623208506703652,
+    "timestamp": 1532595879620,
+    "id": 9
+  },
+  {
+    "customerId": 2,
+    "symbol": "RELI",
+    "tradeType": "BUY",
+    "amount": 3000.0,
+    "shares": 6.934812760055478,
+    "timestamp": 1532602252729,
+    "id": 10
+  },
+  {
+    "customerId": 2,
+    "symbol": "TELCO",
+    "tradeType": "BUY",
+    "amount": 3000.0,
+    "shares": 10.0,
+    "timestamp": 1532684925190,
+    "id": 11
+  },
+  {
+    "customerId": 3,
+    "symbol": "RELI",
+    "tradeType": "BUY",
+    "amount": 3050.0,
+    "shares": 7.05039297272307,
+    "timestamp": 1532685261365,
+    "id": 12
+  },
+  {
+    "customerId": 3,
+    "symbol": "RELI",
+    "tradeType": "SELL",
+    "amount": 1000.0,
+    "shares": 2.311604253351826,
+    "timestamp": 1532685427647,
+    "id": 13
+  }
+]

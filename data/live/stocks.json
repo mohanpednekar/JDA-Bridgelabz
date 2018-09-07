@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Tata Motors",
+    "shares": 990.0,
+    "price": 300.0,
+    "id": "TELCO"
+  },
+  {
+    "name": "Reliance Infocomm",
+    "shares": 329.8012482662968,
+    "price": 432.6,
+    "id": "RELI"
+  },
+  {
+    "name": "Hindustan Lever",
+    "shares": 23056.3,
+    "price": 367.5,
+    "id": "HIND"
+  }
+]

@@ -1,0 +1,1036 @@
+[
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 66950.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Reliance Infocomm",
+          "shares": 4.738788719371243,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 70000.0,
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 66950.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Reliance Infocomm",
+          "shares": 7.05039297272307,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 70000.0,
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 66950.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Reliance Infocomm",
+          "shares": 4.738788719371243,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 70000.0,
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 66950.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Reliance Infocomm",
+          "shares": 7.05039297272307,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 70000.0,
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 66950.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Reliance Infocomm",
+          "shares": 4.738788719371243,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 70000.0,
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 66950.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Reliance Infocomm",
+          "shares": 7.05039297272307,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 70000.0,
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 66950.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Reliance Infocomm",
+          "shares": 4.738788719371243,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 70000.0,
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 66950.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Reliance Infocomm",
+          "shares": 7.05039297272307,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 3
+  },
+  {
+    "name": "Mohan",
+    "surname": "Pednekar",
+    "mobile": 9876543210,
+    "balance": 7470.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "Tata Motors",
+          "shares": 0.0,
+          "price": 300.0,
+          "id": "TELCO"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": -1.1558021266759138,
+          "price": 432.6,
+          "id": "RELI"
+        }
+      ]
+    },
+    "id": 1
+  },
+  {
+    "name": "Atul",
+    "surname": "Yadav",
+    "mobile": 9876464622,
+    "balance": 40000.0,
+    "holdings": {
+      "data": [
+        {
+          "name": "ICICI Bank",
+          "shares": 20.0,
+          "price": 200.0,
+          "id": "ICIC"
+        },
+        {
+          "name": "Reliance Infocomm",
+          "shares": 6.934812760055478,
+          "price": 432.6,
+          "id": "RELI"
+        },
+        {
+          "name": "Tata Motors",
+          "shares": 10.0,
+          "price": 300.0,
+          "id": "TELCO"
+        }
+      ]
+    },
+    "id": 2
+  },
+  {
+    "name": "Guru",
+    "surname": "Nadh",
+    "mobile": 9876543210,
+    "balance": 70000.0,
+    "id": 3
+  },
+  {
+    "name": "Dhiraj",
+    "surname": "Kanake",
+    "mobile": 2368375758,
+    "balance": 1000000.0,
+    "holdings": {
+      "data": []
+    },
+    "id": 4
+  }
+]
